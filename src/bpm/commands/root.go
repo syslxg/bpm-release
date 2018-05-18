@@ -70,9 +70,11 @@ func rootPre(cmd *cobra.Command, _ []string) error {
 		return err
 	}
 
-	if usr.Uid != "0" && usr.Gid != "0" {
-		cmd.SilenceUsage = true
-		return errors.New("bpm must be run as root. Please run 'sudo -i' to become the root user.")
+	if false {
+		if usr.Uid != "0" && usr.Gid != "0" {
+			cmd.SilenceUsage = true
+			return errors.New("bpm must be run as root. Please run 'sudo -i' to become the root user.")
+		}
 	}
 
 	return mountCgroups()

@@ -32,7 +32,8 @@ func NewUserFinder() *UserFinder {
 }
 
 func (f *UserFinder) Lookup(username string) (specs.User, error) {
-	u, err := user.Lookup(username)
+	// u, err := user.Lookup(username)
+	u, err := user.Current()
 	if err != nil {
 		return specs.User{}, err
 	}
